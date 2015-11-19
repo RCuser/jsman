@@ -1,4 +1,7 @@
 //Albert Khan
+//
+//I worked on the bullets and changing weapons, enemies to appear and die, and some easter eggs
+//
 
 #include <iostream>
 #include <cstdlib>
