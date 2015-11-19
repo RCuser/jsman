@@ -249,7 +249,7 @@ int main(void)
 	 //Don't put it in init open gl, lags everything up
 	enemy();
 	crushSprite();
-	maker_miniBoss();
+	render_miniBoss();
 
 	background();
 	soundBGM();
@@ -835,9 +835,9 @@ void render(Game *game)
 	miniBoss *m;
 	m = &game->mb;
 	glPushMatrix();
-	//glColor3ub(90,140,90);
+	glColor3ub(90,140,90);
 	glTranslatef(m->center.x, m->center.y, m->center.z);
-	render_miniBoss();
+	maker_miniBoss();
 	glPopMatrix();
 
 	Shape *cc;
