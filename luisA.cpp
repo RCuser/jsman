@@ -22,73 +22,7 @@ GLuint eTexture3;
 int e = 1; 
 miniBoss *mbhead = NULL;
 extern unsigned char *buildAlphaData3(Ppmimage *img);
-/*
-void set_mbhealth(Game *game)
-{
-	game->mb.mbhealth = 125;
-}
-*/
 
-/*
-void physics_Miniboss(Game *g)
-{
-	//Mini-Boss collision with bullets?
-	//If collision detected:
-	//     1. delete the bullet
-	//     2. break into enemies into pieces
-	a = g->mbhead;
-	while (a) {
-		//is there a bullet within its radius?
-		Bullet *b = g->bhead;
-		while (b) {
-			d0 = b->pos[0] - a->pos[0];
-			d1 = b->pos[1] - a->pos[1];
-			dist = (d0*d0 + d1*d1);
-			if (dist < (a->radius*a->radius)) {
-				//mini-boss hit.
-				if (a->radius > 20.0) {
-					//break it into pieces.
-					Asteroid *ta = a;
-					buildAsteroidFragment(ta, a);
-					int r = rand()%10+5;
-					for (int k=0; k<r; k++) {
-						//get the next asteroid position in the array
-						Asteroid *ta = new Asteroid;
-						buildAsteroidFragment(ta, a);
-						//add to front of asteroid linked list
-						ta->next = g->ahead;
-						if (g->ahead != NULL)
-							g->ahead->prev = ta;
-						g->ahead = ta;
-						g->nasteroids++;
-					}
-				} else {
-					a->color[0] = 1.0;
-					a->color[1] = 0.1;
-					a->color[2] = 0.1;
-					//asteroid is too small to break up
-					//delete the asteroid and bullet
-					Asteroid *savea = a->next;
-					deleteAsteroid(g, a);
-					a = savea;
-					g->nasteroids--;
-				}
-				//delete the bullet...
-				Bullet *saveb = b->next;
-				deleteBullet(g, b);
-				b = saveb;
-				g->nbullets--;
-				if (a == NULL)
-					break;
-				continue;
-			}
-			b = b->next;
-		}
-		if (a == NULL)
-			break;
-		a = a->next;
-	}	
-}*/
 
 void delete_miniBoss(Game *g,miniBoss *node)
 {
@@ -178,6 +112,6 @@ void maker_miniBoss()
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glDisable(GL_ALPHA_TEST);
 	glPopMatrix();
-	
-	//set_mbhealth(&);
 }
+
+
