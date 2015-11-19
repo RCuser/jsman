@@ -766,8 +766,7 @@ void render(Game *game)
 	//glColor3ub(100,100,100);
 	glTranslatef(d->center.x, d->center.y, d->center.z);
 
-		
-	
+
 	if(((keys[XK_Right])||(keys[XK_Left]))) {
 		if((keys[XK_Right])){
 			lGo = false;
@@ -777,11 +776,11 @@ void render(Game *game)
 			else if(((keys[XK_Up])&&!(keys[XK_space]))){		//jump to right
 				jumpAnime(lGo);
 			}
-			else if((!(keys[XK_Up])&&keys[XK_space])){		//jump w/ shoot
-				shootAnime(lGo, 'j');
-			}				
-			else if((keys[XK_space])){		//walk and shoot
+			else if((!(keys[XK_Up])&&(keys[XK_space]))){		//walk w/ shoot
 				shootAnime(lGo, 'w');
+			}				
+			else if(((keys[XK_space])&&(keys[XK_Up]))){		//jump and shoot
+				shootAnime(lGo, 'j');
 			}
 		}
 		else{
@@ -792,28 +791,27 @@ void render(Game *game)
 			else if(((keys[XK_Up])&&!(keys[XK_space]))){		//jump to left
 				jumpAnime(lGo);
 			}
-			else if((!(keys[XK_Up])&&keys[XK_space])){		//jump w/ shoot
-				shootAnime(lGo, 'j');
-			}				
-			else if((keys[XK_space])){		//walk and shoot
+			else if((!(keys[XK_Up])&&(keys[XK_space]))){		//walk w/ shoot
 				shootAnime(lGo, 'w');
+			}				
+			else if(((keys[XK_space])&&(keys[XK_Up]))){		//jump and shoot
+				shootAnime(lGo, 'j');
 			}
 			
 		}
 	}
-	else if(((keys[XK_Up])&&!(keys[XK_space]))){		//jump
+	else if(((keys[XK_Up])&&!(keys[XK_space])&&!touchPlatform)){		//jump
 		jumpAnime(lGo);
 	}
-	else if((!(keys[XK_Up])&&keys[XK_space])){		//jump w/ shoot
-		shootAnime(lGo, 'j');
-	}	
-	else if((keys[XK_space])){		//stay and shoot
+	else if((!(keys[XK_Up])&&keys[XK_space])){		//stay w/ shoot
 		shootAnime(lGo, 's');
+	}	
+	else if(((keys[XK_Up])&&(keys[XK_space]))){		//jump and shoot
+		shootAnime(lGo, 'j');
 	}
 	else{
 		stayAnime(lGo);
 	}
-
 
 	glPopMatrix();
 	drawHealth(d->center.x, game->character.health);
