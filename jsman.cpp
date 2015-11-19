@@ -270,7 +270,7 @@ int main(void)
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, painImage->width, painImage->height, 0,
 							GL_RGBA, GL_UNSIGNED_BYTE, silhouetteData);
 	free(silhouetteData); 
-	remove("./images/programtext.ppm");
+	remove(" ./images/programtext.ppm");
 
 	//start animation
 	while(!done) {
