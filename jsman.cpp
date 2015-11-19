@@ -76,9 +76,9 @@ int beginY = 0;
 int endY = WINDOW_HEIGHT;
 int keys[65536]; //just added
 //float gravity = 0.5f;
-/////////////////////////////////////////////////////////////////
+
 bool walkersRight = 1;
-/////////////////////////////////////////////////////////////////
+
 
 int v =0;
 
@@ -148,13 +148,13 @@ void soundHit(void);
 void stage2(Game *game);
 unsigned char *buildAlphaData(Ppmimage *img);
 
-///////////////////////////////////////////
+
 void stage2enemies(Game *game);
 void enemyReverse(Game *game);
 void moveEnemy(Game *game);
-/////////////////////////////////////////////
 
-//------------------------------------\/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ /\ /\ /\ /\/ \/ \/ \/ \/ \/ \/
+
+
 void shotgunPress(Game *game, Character *c);
 void shotgunMovement1(Game *game, WalkEnemy *w);
 void shotgunMovement2(Game *game, WalkEnemy *w);
@@ -166,7 +166,7 @@ bool TruePain = 0;
 void IhaveProblems(void);
 void difficulties(void);
 void renderDiff(Game *game);
-//-------------------------------------^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 //void cutsc(Game *game); //cutscene function prototype
 
@@ -178,7 +178,7 @@ void movingPlatTopCollision(Game *game, Character *c);
 
 void movePlatform(void);
 
-void characterMaker(Game *game); //EXPERIMENTAL!!!!!!!!!!!!1
+void characterMaker(Game *game); 
 
 void maker_miniBoss(Game *game);
 void delete_miniBoss(Game *g, miniBoss *node);
@@ -211,12 +211,12 @@ int main(void)
 	//game.character.center.y = 200;
 	characterMaker(&game);
 	
-//------------------------------------\/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ /\ /\ /\ /\/ \/ \/ \/ \/ \/ \/
+
 
 	BuildWalker(&game);
 	stage2enemies(&game);
 
-//-------------------------------------^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 	/*game.walkers[1].width = 28.5;
 	game.walkers[1].height = 22;
@@ -400,9 +400,7 @@ void init_opengl(void) //void
 
 	glEnable(GL_TEXTURE_2D);  //adding this to enable fonts for blocks
 	initialize_fonts();
-	////////////////////////////////////////////////////////////////////////////////////////////
-	
-/////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
 
 #define rnd() (float)rand() / (float)RAND_MAX
@@ -637,27 +635,25 @@ void movement(Game *game)
 		bulletPress(game,c);
 	}*/
 
-//------------------------------------\/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ /\ /\ /\ /\/ \/ \/ \/ \/ \/ \/
+
 	if (keys[XK_space]) {
 		if (NormalShot == 1)
 			bulletPress(game,c);
 		if (NormalShot == 0)
 			shotgunPress(game,c);
 	}
-//-------------------------------------^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 	charEnemyColl(game);
 	crushCollision(game);
 	MPStop(game);	
-//------------------------------------\/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ /\ /\ /\ /\/ \/ \/ \/ \/ \/ \/
+
 	
 	WalkerDeath(game);
 
-//-------------------------------------^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-///////////////////////////////////////////////////
 	enemyReverse(game);
 	moveEnemy(game); 
-//////////////////////////////////////////////////
+
 }
 
 void gotHitAlready(Game *game) {
@@ -700,7 +696,7 @@ void charEnemyColl(Game *game)
 	}
 	}
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void moveEnemy(Game *game) 
 { 
 	if(walkersRight == 1) {
@@ -728,7 +724,7 @@ void enemyReverse(Game *game)
 	
 	
 }
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void render(Game *game)
 {
 	
