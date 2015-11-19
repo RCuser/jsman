@@ -688,12 +688,12 @@ void shootAnime(bool left, char a){
 	game.character.shootTimeDif = float(clock() - game.character.beginShoot) / CLOCKS_PER_SEC;
 	
 	if(a == 's'){	//stay and shoot
-		timing = 4;
+		timing = 0;
 	}
 	else if(a == 'w')	//walk and shoot
-		timing = (int)(game.character.shootTimeDif*10) % 3;
+		timing = ((int)(game.character.shootTimeDif*10) % 3)+1;
 	else if(a == 'j')	//jump and shoot
-		timing = 0;
+		timing = 4;
 		
     glColor3ub(255,255,255);//set color to pure white to avoid blending 
     
