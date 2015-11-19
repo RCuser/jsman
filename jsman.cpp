@@ -180,7 +180,7 @@ void movePlatform(void);
 
 void characterMaker(Game *game); 
 
-void maker_miniBoss(Game *game);
+void maker_miniBoss(void);
 void delete_miniBoss(Game *g, miniBoss *node);
 void render_miniBoss(void); 
 
@@ -249,7 +249,7 @@ int main(void)
 	 //Don't put it in init open gl, lags everything up
 	enemy();
 	crushSprite();
-	maker_miniBoss(&game);
+	maker_miniBoss();
 
 	background();
 	soundBGM();
