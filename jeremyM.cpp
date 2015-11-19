@@ -342,7 +342,7 @@ void stage2(Game *game)
 
 void stage2enemies(Game *game) 
 {
-	game->walkers[1].width = 22;/////////////////////////////////////////////////
+	game->walkers[1].width = 22;
 	game->walkers[1].height = 14;
 	game->walkers[1].center.x = 820;
 	game->walkers[1].center.y = 260;
